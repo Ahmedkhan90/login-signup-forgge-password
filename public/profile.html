@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="head">
+                <spam class="up">
+                    <a href="index.html" style="text-decoration: none;">SignUp</a>
+                </spam>
+                <spam class="up">
+                    <a href="login.html" style="text-decoration: none;">LogIn</a>
+                </spam>
+            </div>
+        </div>
+
+    <div style=" width: 30%;">
+        <h3>USER PROFILE</h3>
+        <label>Name :</label>
+        <span id="b-name"></span>
+        <br>
+        <br>
+        <label>Email :</label>
+        <span id="b-email"></span>
+        <br>
+        <br>
+        <label>Phone :</label>
+        <span id="b-phone"></span>
+        <br>
+        <br>
+        <label >Gender :</label>
+        <span id="b-gender"></span>
+    </div>
+    <form class="frm" onsubmit="return profile()">
+        <label>Reset Password?</label>
+        <button>Reset Password</button>
+    </form>
+    <script src="app.js"></script>
+</body>
+</html>

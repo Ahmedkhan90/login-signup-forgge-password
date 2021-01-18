@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="head">
+            <spam class="up">
+                <a href="index.html" style="text-decoration: none;">SignUp</a>
+            </spam>
+            <spam class="up">
+                <a href="login.html" style="text-decoration: none;">LogIn</a>
+            </spam>
+        </div>
+    </div>
+    <form onsubmit="return login()">
+        <fieldset class="frm margn">
+            <legend>Log In</legend>
+            <label>Email :</label>
+            <br>
+            <input type="email" class="input" name="email" id="email" required placeholder="Email Adress">
+            <br><br>
+            <label>Password :</label>
+            <br>
+            <input type="password" class="input" name="password" id="password" required placeholder="Password">
+            <br><br>
+            <input type="checkbox">Remember Password?
+            <br>
+            <button class="btn1" type="submit">Login</button><br>
+            <div class="sign">Don't Have An Account?<a href="index.html" style="color: black;">SignUp Here</a></div>
+            <div class="sign1"><a href="forgot1.html" style="color: black;">Forggten Pawword</a></div>
+
+        </fieldset>
+    </form>
+    <script src="app.js"></script>
+</body>
+
+</html>

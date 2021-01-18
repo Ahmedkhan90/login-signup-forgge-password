@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script> -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="head">
+                <spam class="up">
+                    <a href="index.html" style="text-decoration: none;">SignUp</a>
+                </spam>
+                <spam class="up">
+                    <a href="login.html" style="text-decoration: none;">LogIn</a>
+                </spam>
+            </div>
+        </div>
+        <!---------------------- Form Start -------------->
+        <div class="res">
+            <form onsubmit="return signup()">
+                <fieldset class="frm">
+                    <legend>Sign Up Here</legend>
+                    <label>User Name :</label>
+                    <br>
+                    <input type="text" class="input" name="aName" id="aName" required placeholder="User Name...">
+                    <br>
+                    <label>Email :</label>
+                    <br>
+                    <input type="email" class="input" name="Email" id="Email" required placeholder="Email Adress...">
+                    <br>
+                    <label>Password :</label>
+                    <br>
+                    <input type="password" class="input" name="Password" id="Password" required
+                        placeholder="Password...">
+                    <br>
+                    <label>Phone :</label>
+                    <br>
+                    <input type="number" class="input" name="Number" id="Number" required placeholder="Phone Number...">
+                    <br>
+                    <label> Nationalty:</label>
+                    <select class="input">
+                        <option value="Pakistan">Pakistan</option>
+                        <option value="Afghanistan">Afghanistan</option>
+                        <option value="Balgium">Balgium</option>
+                        <option value="Canada">Canada</option>
+                        <option value="Iran">Iran</option>
+                        <option value="India">India</option>
+                        <option value="China">China</option>
+                        <option value="Japan">Japan</option>
+                        <option value="America">America</option>
+                        <option value="Englend">Englend</option>
+                    </select><br>
+                    <label>Gender :</label>
+                    <br>
+                    <select name="Gender" class="input" id="gender" required>
+                        <option value="Male" class="input">Male</option>
+                        <option value="Female" class="input">Female</option>
+                    </select>
+                    <br><br>
+                    <input type="checkbox" required>i Accept The All <a href="#" style="color: green;">Trums &
+                        policy</a>
+                    <br><br>
+                    <button class="btn">Submit</button>
+                    <div class="login">Have An Account?<a href="login.html" style="color: black;">Login Here</a></div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+
+</html>

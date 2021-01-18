@@ -1,0 +1,113 @@
+/* Signup page  */
+/* body{
+    max-width: 1400px;
+    min-width: 250px;
+} */
+.main{
+    max-width: 1400px;
+    min-width: 400px;
+
+}
+/* .res{
+} */
+.frm {
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 500px;
+    box-shadow: 10px 10px 10px 10px;
+    text-size-adjust: larger;
+    text-decoration: solid;
+    font-size: large;
+    font-weight: bolder;
+    border-radius: 15px;
+    /* min-width: 500px; */
+    /* max-width: 500px; */
+}
+
+.header {
+    width: 100%;
+    height: 60px;
+    border: 1px solid black;
+    background-color: gray;
+}
+
+.head {
+    float: right;
+    width: 300px;
+    margin-top :12px;
+    /* margin: 1px; */
+    /* padding: 2px; */
+    height: 50px;
+    /* border: 2px solid black; */
+}
+.up{
+    margin: 8px;
+    margin-top: 2px;
+    font-size: 30px;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 12px;
+    font-size:xx-large;
+
+}
+
+legend {
+    text-align: center;
+    font-size: xx-large;
+    /* box-shadow: 5px 5px 5px; */
+}
+
+.input {
+    width: 300px;
+    height: 30px;
+    box-shadow: 2px 2px 2px 2px;
+    /* padding: 0px; */
+    border-radius: 5px;
+}
+
+label {
+    margin-left: 10px;
+    font-size: large;
+    text-shadow: 2px 2px 2px 2px black;
+}
+
+.btn {
+    width: 250px;
+    height: 30px;
+    margin-left: 20px;
+    border-radius: 5px;
+}
+
+.login {
+    font-size: small;
+    margin-top: 10px;
+    margin-left: 70px;
+    color: black;
+}
+
+/* Login Page  */
+
+.btn1 {
+    width: 200px;
+    height: 30px;
+    margin-top: 20px;
+    margin-left: 50px;
+    border-radius: 5px;
+}
+
+.sign {
+    font-size: small;
+    margin-top: 10px;
+    margin-left: 50px;
+    color: black;
+}
+.sign1{
+    font-size: small;
+    margin-top: 10px;
+    margin-left: 180px;
+    color: green;
+}
+
+.margn {
+    margin-top: 80px;
+}
