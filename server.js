@@ -11,6 +11,15 @@ var cookieParser = require('cookie-parser');
 var postmark = require("postmark");
 const path = require("path");
 const axios = require('axios')
+var http = require("http");
+var socketIO = require('socket.io');
+// var socketIO = require("socket.io");
+// var server = http.createServer(app);
+// var io = socketIO(server);
+
+// io.on("connection",()=>{
+//     console.log("chl gya");
+// })
 
 // var client = new postmark.Client("03d41ca2-fd57-4edd-9e9e-506ac1aaf894");
 
@@ -55,6 +64,7 @@ var userSchema = new mongoose.Schema({
     email: String,
     password: String,
     phone: String,
+    // gender: string,
     createdOn: {
         type: Date,
         'default': Date.now
@@ -68,13 +78,21 @@ var otpSchema = new mongoose.Schema({
     "otpCode": String,
     "createdOn": { "type": Date, "default": Date.now },
 });
-
-
 var otpModel = mongoose.model("otps", otpSchema);
+
+
+var tweetSchema = new mongoose.Schema({
+    "username": String,
+    "tweet": String
+});
+var tweetModel = mongoose.model("tweet", tweetSchema);
 
 module.exports = {
     userModel: userModel,
-    otpModel: otpModel
+    otpModel: otpModel,
+    tweetModel: tweetModel
+    // tweetModel: tweetModel,
+
 }
 
 var app = express();
@@ -332,7 +350,7 @@ app.post("/forget-password-step-2", (req, res, next) => {
                         } else if (otpData) {
                             otpData = otpData[otpData.length - 1]
 
-                            console.log("otpData Or AHmed otp: ", otpData);
+                            console.log("otpData: ", otpData);
 
                             const now = new Date().getTime();
                             const otpIat = new Date(otpData.createdOn).getTime(); // 2021-01-06T13:08:33.657+0000
@@ -373,6 +391,80 @@ app.post("/forget-password-step-2", (req, res, next) => {
 
 
 
+//POST
+
+app.post("/tweet", (req, res, next) => {
+   
+
+    if (!req.body.jToken.id || !req.body.tweet) {
+        res.send({
+            status: 401,
+            message: "Please write tweet"
+        })
+    }
+    userModel.findById(req.body.jToken.id, 'name', function (err, user) {
+        if (!err) {
+            tweetModel.create({
+                "username": user.name,
+                "tweet": req.body.tweet
+            }, function (err, data) {
+                if (err) {
+                    res.send({
+                        message: "Tweet DB ERROR",
+                        status: 404
+                    });
+                }
+                else if (data) {
+                    console.log("data checking Tweeter ", data);
+                    res.send({
+                        message: "Your Tweet Send",
+                        status: 200,
+                        tweet: data
+                    });
+                    io.emit("NEW_POST", data);
+
+                    console.log("server checking code tweet ", data.tweet)
+                } else {
+                    res.send({
+                        message: "Tweets posting error try again later",
+                        status: 500
+                    });
+                }
+            });
+
+        } else {
+            res.send({
+                message: "User Not Found",
+                status: 404
+            });
+        }
+    });
+
+
+});
+
+app.get("/tweet-get", (req, res, next) => {
+    tweetModel.find({}, function (err, data) {
+        if (err) {
+            res.send({
+                message: "Error :" + err,
+                status: 404
+            });
+        } else if (data) {
+            res.send({
+                tweet: data,
+                status: 200
+            });
+        } else {
+            res.send({
+                message: "User Not Found"
+            });
+        }
+    });
+});
+
+
+
 
 //LOGOUT
 
@@ -385,6 +477,31 @@ app.post("/logout", (req, res, next) => {
     });
     res.send("logout success");
 })
+
+
+
+
+//PROFILE
+
+app.get("/profile", (req, res, next) => {
+    console.log(req.body);
+
+    userModel.findById(req.body.jToken.id, 'name email phone gender createdOn', function (err, doc) {
+        if (!err) {
+            res.send({
+                profile: doc
+            })
+
+        } else {
+            res.send({
+                message: "Server Error",
+                status: 500
+            });
+        }
+    });
+})
+
+
 
 
 function getRandomArbitrary(min, max) {

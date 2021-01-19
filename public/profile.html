@@ -3,11 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DashBoard</title>
+    <title>Tweeter</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+        crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
+    <script src="socket.io.js"></script>
+
 </head>
 <body>
-    <div class="main">
+    <!--------------------------------- NavBar -------------------------------->
+    <!-- <div class="main">
         <div class="header">
             <div class="head">
                 <spam class="up">
@@ -16,10 +24,14 @@
                 <spam class="up">
                     <a href="login.html" style="text-decoration: none;">LogIn</a>
                 </spam>
+                <spam class="up">
+                    <a href="login.html" style="text-decoration: none;">LogOut</a>
+                </spam>
             </div>
-        </div>
+        </div> -->
+        <!--------------------------------------- End NavBar -------------------------------->
 
-    <div style=" width: 30%;">
+    <!-- <div style=" width: 30%;">
         <h3>USER PROFILE</h3>
         <label>Name :</label>
         <span id="b-name"></span>
@@ -39,7 +51,8 @@
     <form class="frm" onsubmit="return profile()">
         <label>Reset Password?</label>
         <button>Reset Password</button>
-    </form>
+    </form> -->
+
     <script src="app.js"></script>
 </body>
 </html>
