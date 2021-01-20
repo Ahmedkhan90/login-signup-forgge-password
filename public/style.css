@@ -111,3 +111,10 @@ label {
 .margn {
     margin-top: 80px;
 }
+
+.reverse{
+    transform: rotate(180deg);
+}
+#mytweet{
+    list-style-type: none;
+}
