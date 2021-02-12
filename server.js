@@ -1,5 +1,5 @@
-// const PORT = process.env.PORT || 5000;
-const url = "https://forgget-pasword-ahm.herokuapp.com"
+const PORT = process.env.PORT || 5000;
+// const url = "https://forgget-pasword-ahm.herokuapp.com"
 
 
 var express = require("express");
