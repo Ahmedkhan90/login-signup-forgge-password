@@ -101,7 +101,7 @@ module.exports = {
 }
 
 var app = express();
-var server = http.createServer(app);
+// var server = http.createServer(app);
 app.use(bodyParser.json());
 app.use(cors());
 app.use(morgan('dev'));
@@ -109,10 +109,10 @@ app.use(cookieParser());
 
 app.use("/", express.static(path.resolve(path.join(__dirname, "public"))));
 
-var io = socketIO(server);
-io.on("connection", (user) => {
-    console.log("user connected");
-})
+// var io = socketIO(server);
+// io.on("connection", (user) => {
+//     console.log("user connected");
+// })
 
 //******* SIGNUP ********//
 
