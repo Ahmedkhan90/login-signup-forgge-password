@@ -1,8 +1,8 @@
 ///SignUP
 
-// const url = "https://forgget-pasword-ahm.herokuapp.com"
+const url = "https://forgget-pasword-ahm.herokuapp.com"
 
-const url = "http://localhost:5000"
+// const url = "http://localhost:5000"
 // var socket = io(url);
 
 // socket.on('connect', function () {
