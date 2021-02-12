@@ -11,8 +11,8 @@ var cookieParser = require('cookie-parser');
 var postmark = require("postmark");
 const path = require("path");
 const axios = require('axios')
-var http = require("http");
-var socketIO = require('socket.io');
+// var http = require("http");
+// var socketIO = require('socket.io');
 // var socketIO = require("socket.io");
 // var server = http.createServer(app);
 // var io = socketIO(server);
@@ -29,7 +29,11 @@ var SERVER_SECRET = process.env.SECRET || "1234"
 
 
 
-let dbURI = "mongodb+srv://abc:abc@cluster0.pxwa2.mongodb.net/testdb?retryWrites=true&w=majority";
+// let dbURI = "mongodb+srv://abc:abc@cluster0.pxwa2.mongodb.net/testdb?retryWrites=true&w=majority";
+let dbURI = "mongodb+srv://ahmed:ahmed@cluster0.l8ly0.mongodb.net/ahmed?retryWrites=true&w=majority";
+
+
+
 mongoose.connect(dbURI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -91,6 +95,7 @@ module.exports = {
     userModel: userModel,
     otpModel: otpModel,
     tweetModel: tweetModel
+
     // tweetModel: tweetModel,
 
 }
@@ -364,7 +369,7 @@ app.post("/forget-password-step-2", (req, res, next) => {
                                 bcrypt.stringToHash(req.body.newPassword).then(function (hash) {
                                     user.update({ password: hash }, {}, function (err, data) {
                                         res.send({
-                                            massege: "Your Password Has Been Updated"
+                                            massege:"Your Password Has Been Updated"
                                         });
                                     })
                                 })

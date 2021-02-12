@@ -31,27 +31,57 @@
         </div> -->
         <!--------------------------------------- End NavBar -------------------------------->
 
-    <!-- <div style=" width: 30%;">
-        <h3>USER PROFILE</h3>
-        <label>Name :</label>
-        <span id="b-name"></span>
-        <br>
-        <br>
-        <label>Email :</label>
-        <span id="b-email"></span>
-        <br>
-        <br>
-        <label>Phone :</label>
-        <span id="b-phone"></span>
-        <br>
-        <br>
-        <label >Gender :</label>
-        <span id="b-gender"></span>
-    </div>
-    <form class="frm" onsubmit="return profile()">
-        <label>Reset Password?</label>
-        <button>Reset Password</button>
-    </form> -->
+    
+        <nav class="navbar navbar-expand-lg navbar-light bg-primary" >
+            <div class="container-fluid">
+              <a style="color: white; font-weight: bolder;" class="navbar-brand" href="./home.html">PYT</a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              
+              <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                </ul>
+                
+                <form style="margin-right: 3%;" class="d-flex">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    
+                   <a  href="./profile.html"> <h3  style="color: white; margin-right: 15px;" id="name"></h3></a>
+                    
+                    <div  class="btn-group">
+                      <button  style="background-color: red;font-weight: bolder;" class="btn btn-secondary btn-sm dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Profile
+                      </button>
+                      <ul class="dropdown-menu">
+                  
+                        <li><a class="dropdown-item" href="./profile.html">Profile</a></li>
+                        <li><a class="dropdown-item" href="#">About</a></li>
+                        <li><a class="dropdown-item" href="#">Setting</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><button onclick="return logout()"  class="dropdown-item">LogOut</button></li>
+                              </ul>
+                            </div>
+                            
+                          </ul>
+                        </form>
+                      </div>
+                    </div>
+                  </nav>
+                  
+                  
+                  
+                  <nav style="width: 50%; margin: 1% auto;" class="navbar navbar-light bg-primary">
+                    <div class="container-fluid">
+                      <form style="width: 100%;" class="d-flex" >
+                        <input id="your-post" class="form-control me-2" type="search" placeholder="write you post" aria-label="Search">
+                        <button style="background-color: red;font-weight: bolder; color: white;" class="btn btn-outline-success" type="submit" onclick="return tweetpost()">Post</button>
+                        
+                      </form>
+                    </div>
+                  </nav>
+                  <ol style="transform: rotate(180deg); margin: 5% auto 0 30%;" id="mytweet">
+                    
+                  </ol>
 
     <script src="app.js"></script>
 </body>

@@ -1,11 +1,11 @@
 ///SignUP
 
 const url = "http://localhost:5000"
-var socket = io(url);
+// var socket = io(url);
 
-socket.on('connect', function () {
-    console.log("connected")
-});
+// socket.on('connect', function () {
+//     console.log("connected")
+// });
 function signup() {
 
     
@@ -50,7 +50,7 @@ function login() {
     }).then((response) => {
         console.log(response);
         alert(response.data.message)
-        window.location.href = "home.html"
+        window.location.href = "index.html"
     }, (error) => {
         console.log(error);
         alert(error)
@@ -115,102 +115,106 @@ function forgot2() {
 
 //PROFILE
 
-function profile() {
-    axios({
-        method: 'get',
-        url: url + '/profile',
-        credentials: 'include',
-    }).then((response) => {
-        console.log(response);
-        document.getElementById('name').innerHTML = response.data.profile.username
-        // document.getElementById('email').innerHTML = response.data.profile.useremail
-    }, (error) => {
-        console.log(error.message);
-    });
-    return false
-}
+// function profile() {
+//     axios({
+//         method: 'get',
+//         url: url + '/profile',
+//         credentials: 'include',
+//     }).then((response) => {
+//         console.log(response);
+//         document.getElementById('name').innerHTML = response.data.profile.name;
+//         document.getElementById('email').innerHTML = response.data.profile.email;
+//         document.getElementById('phone').innerHTML = response.data.profile.phone;
+//         document.getElementById("user-id").innerHTML = response.data.profile._id;
+//         document.getElementById("gender").innerHTML = response.data.profile.gender
+        
+//     }, (error) => {
+//         console.log(error.message);
+//     });
+//     return false
+// }
 
 
 //POST
 
-function tweetpost() {
-    axios({
-        method: 'post',
-        url: url + "/tweet",
-        data: {
-            tweet: document.getElementById("your-post").value,
-        },
-        withCredentials: true
-    }).then((response) => {
-        if (response.data.status === 200) {
-            alert(response.data.message)
-            return
-        } else {
-            alert(response.data.message)
-        }
-    }, (error) => {
-        console.log(error);
-    });
-    return false;
-}
+// function tweetpost() {
+//     axios({
+//         method: 'post',
+//         url: url + "/tweet",
+//         data: {
+//             tweet: document.getElementById("your-post").value,
+//         },
+//         withCredentials: true
+//     }).then((response) => {
+//         if (response.data.status === 200) {
+//             alert(response.data.message)
+//             return
+//         } else {
+//             alert(response.data.message)
+//         }
+//     }, (error) => {
+//         console.log(error);
+//     });
+//     return false;
+// }
 
 
-function gettweet() {
-    getProfile();
-    axios({
-        method: 'get',
-        url: url + '/tweet-get',
-        credentials: 'include',
-    }).then((response) => {
-        let tweets = response.data.tweet;
-        for (i = 0; i < tweets.length; i++) {
-            var eachtweet = document.createElement("li");
-            eachtweet.innerHTML = `<h4>
-            ${tweets[i].username}
-            </h4>
-            <p>
-            ${tweets[i].tweet}
-            </p>`;
-            eachtweet.setAttribute('class','reverse')
-            document.getElementById("mytweet").appendChild(eachtweet);
-        }
-    }, (error) => {
-        console.log(error.message);
-    });
+// function gettweet() {
+//     getProfile();
+//     axios({
+//         method: 'get',
+//         url: url + '/tweet-get',
+//         credentials: 'include',
+//     }).then((response) => {
+//         let tweets = response.data.tweet;
+//         for (i = 0; i < tweets.length; i++) {
+//             var eachtweet = document.createElement("li");
+//             eachtweet.innerHTML = `<h4>
+//             ${tweets[i].username}
+//             </h4>
+//             <p>
+//             ${tweets[i].tweet}
+//             </p>`;
+//             eachtweet.setAttribute('class','reverse')
+//             document.getElementById("mytweet").appendChild(eachtweet);
+//         }
+//     }, (error) => {
+//         console.log(error.message);
+//     });
 
 
-    return false
-}
+//     return false
+// }
 
-socket.on("NEW_POST", (newPost) => {
-
-
-    console.log(newPost);
-
-    let jsonRes = newPost;
-    var eachtweet = document.createElement("li");
-    eachtweet.innerHTML = `<h4>
-    ${jsonRes.username}
-    </h4>
-     <p>
-        ${jsonRes.tweet}
-    </p>`;
-    eachtweet.setAttribute('class','reverse')
-
-    document.getElementById("mytweet").appendChild(eachtweet);
+// socket.on("NEW_POST", (newPost) => {
 
 
-})
-function logout() {
-    axios({
-        method: 'post',
-        url: url + '/logout',
+//     console.log(newPost);
+
+//     let jsonRes = newPost;
+//     var eachtweet = document.createElement("li");
+//     eachtweet.innerHTML = `<h4>
+//     ${jsonRes.username}
+//     </h4>
+//      <p>
+//         ${jsonRes.tweet}
+//     </p>`;
+//     eachtweet.setAttribute('class','reverse')
+
+//     document.getElementById("mytweet").appendChild(eachtweet);
+
+
+// })
+// function logout() {
+//     axios({
+//         method: 'post',
+//         url: url + '/logout',
       
-    }).then((response) => {
-        console.log(response);
-        window.location.href = "./login.html"
-    }, (error) => {
-        console.log(error.message);
-    });
-    return false
-}
+//     }).then((response) => {
+//         console.log(response);
+//         window.location.href = "./login.html"
+//     }, (error) => {
+//         console.log(error.message);
+//     });
+//     return false
+// }
