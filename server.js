@@ -23,7 +23,7 @@ const axios = require('axios')
 //     console.log("chl gya");
 // })
 
-// var client = new postmark.Client("03d41ca2-fd57-4edd-9e9e-506ac1aaf894");
+var client = new postmark.Client("03d41ca2-fd57-4edd-9e9e-506ac1aaf894");
 
 var SERVER_SECRET = process.env.SECRET || "1234"
 
@@ -291,25 +291,27 @@ app.post("/forget-password", (req, res, next) => {
                     otpCode: otp
                 }).then((doc) => {
 
-                    // client.sendEmail({
-                    //     "From": "ahmed_student@sysborg.com",
-                    //     "To": req.body.email,
-                    //     "Subject": "Reset your password",
-                    //     "TextBody": `Here is your pasword reset code: ${otp}`
-                    // }).then((status) => {
+                    client.sendEmail({
+                        "From": "ahmed_student@sysborg.com",
+                        "To": req.body.email,
+                        "Subject": "Reset your password",
+                        "TextBody": `Here is your pasword reset code: ${otp}`
+                    }).then((status) => {
 
-                    //     console.log("status: ", status);
-                    //     res.send({
-                    //         message: "Email Send OPT",
-                    //         status: 200
-                    //     })
+                        console.log("status: ", status);
+                        res.send({
+                            message: "Email Send OPT",
+                            status: 200
+                        })
 
-                    // })
-                    console.log("your OTP: ", otp);
-                    res.send({
-                                message: "Email Send OPT",
-                                status: 200
-                            })
+                    })
+                    // document.getElementById("otp").innerHTML = otp;
+                    // console.log("your OTP:" ,otp);
+                    // res.send({
+                    //             message: "Email Send OPT", 
+                    //             status: 200
+                    //         })
+                 
 
                 }).catch((err) => {
                     console.log("error in creating otp: ", err);
